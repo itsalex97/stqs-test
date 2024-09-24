@@ -6,6 +6,7 @@ function StartingLocation({apiToken, sysSymbol, waypointSymbol}) {
 
     return(<>
       <h3>Starting Location</h3>
+      <p>Enter your Token, Starting Symbol and Waypoint Symbol to see the location you started at.</p>
       <input name="api-token" placeholder="API Token" value={form.token} onChange={(e) => setForm({ ...form, token: e.currentTarget.value })} />
       <input name="system-symbol" placeholder="System Symbol" value={form.systemSymbol} onChange={(e) => setForm({ ...form, systemSymbol: e.currentTarget.value })} />
       <input name="waypoint-symbol" placeholder="Waypoint Symbol" value={form.waypointSymbol} onChange={(e) => setForm({ ...form, waypointSymbol: e.currentTarget.value })} />
