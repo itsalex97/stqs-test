@@ -34,6 +34,7 @@ function NewGame() {
 
       setResp(JSON.stringify(json, null, 2))
     }} />
+    <pre>Copy the below API token to continue with the applicaiton.</pre>
     <pre>API token: {token}</pre>
     <pre>Response: {resp}</pre>
   </>)

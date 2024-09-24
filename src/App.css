@@ -1,5 +1,6 @@
 #root {
   max-width: 1280px;
+  width: 40%;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -18,8 +19,7 @@ blockquote {
 
 .section {
     display: none;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 10px;
     border-radius: 5px;
     transform: translateY(-20px);
 }

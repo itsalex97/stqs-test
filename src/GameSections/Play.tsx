@@ -1,14 +1,14 @@
 import { useState } from "react"
+import "./Play.css";
 
 
-function LogIn() {
+function Play() {
     const [resp, setResp] = useState("");
     const [form, setForm] = useState({ token: ""});
   
     return (<>
-      <h1>Log In</h1>
+      <h1>Play Game</h1>
       <input name="api-token" value={form.token} onChange={(e) => setForm({ ...form, token: e.currentTarget.value })} />
-
 
       <input type="submit" onClick={async () => {
         const resp = await fetch("https://api.spacetraders.io/v2/my/agent", {
@@ -26,4 +26,4 @@ function LogIn() {
     </>)
   }
   
-  export default LogIn
+  export default Play

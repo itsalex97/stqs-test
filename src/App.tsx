@@ -1,12 +1,12 @@
 import "./App.css";
-import LogIn from "./LogIn";
-import NewGame from "./NewGame";
+import Play from "./GameSections/Play";
+import NewGame from "./GameSections/NewGame";
 
 function App() {
-  const sections = ['register', 'login'];
+  const sections = ['register', 'play'];
   function toggleSection(section : string) {
     sections.forEach(e => {document.getElementById(e)?.classList.remove('active')});
-    document.getElementById(section)?.classList.toggle('active')
+    document.getElementById(section)?.classList.toggle('active');
   }
 
   return (
@@ -15,10 +15,10 @@ function App() {
       <div className="startContainer">
         <div className="buttons">
           <button onClick={() => toggleSection('register')}>Register</button>
-          <button onClick={() => toggleSection('login')}>Log in</button>
+          <button onClick={() => toggleSection('play')}>Play Game</button>
         </div>
         <div id="register" className="section"><NewGame /></div>
-        <div id="login" className="section"><LogIn /></div>
+        <div id="play" className="section"><Play /></div>
       </div>
     </>
   );
