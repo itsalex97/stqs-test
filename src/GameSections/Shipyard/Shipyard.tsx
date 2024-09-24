@@ -11,6 +11,8 @@ function Shipyard({apiToken, sysSymbol}) {
         switch(section) {
             case "viewShipyards": 
                 return <ViewShipyards apiToken={apiToken} sysSymbol={sysSymbol} />;
+            case "viewShips": 
+                return <ViewShips apiToken={apiToken} sysSymbol={sysSymbol} shipWaypointSymbol={shipWaypointSymbol} setShipWaypointSymbol={setShipWaypointSymbol} />;
             default: 
                 return null;
         }
@@ -24,7 +26,7 @@ function Shipyard({apiToken, sysSymbol}) {
         <h3>The Shipyard</h3>
         <div className="btnContainer">
             <button onClick={() => addSection("viewShipyards")}>View Shipyards</button>
-            <button>View Available Ships</button>
+            <button onClick={() => addSection("viewShips")}>View Available Ships</button>
             <button>Purchase Ship</button>
         </div>
         <div id="content" className="subsection-content">
