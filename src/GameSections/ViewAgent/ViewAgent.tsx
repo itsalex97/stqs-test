@@ -5,6 +5,7 @@ function Agent({apiToken}) {
     const [form, setForm] = useState({ token: apiToken});
 
     return(<>
+    <h3>View Agent</h3>
       <input name="api-token" placeholder="API Token" value={form.token} onChange={(e) => setForm({ ...form, token: e.currentTarget.value })} />
 
       <input type="submit" onClick={async () => {
