@@ -12,8 +12,8 @@ function NewGame() {
 
   return (<>
     <h1>New Game</h1>
-    <input name="symbol" value={form.symbol} onChange={(e) => setForm({ ...form, symbol: e.currentTarget.value })} />
-    <input name="faction" value={form.faction} onChange={(e) => setForm({ ...form, faction: e.currentTarget.value })} />
+    <input name="symbol" placeholder="Username" value={form.symbol} onChange={(e) => setForm({ ...form, symbol: e.currentTarget.value })} />
+    <input name="faction" placeholder="Faction" value={form.faction} onChange={(e) => setForm({ ...form, faction: e.currentTarget.value })} />
     <input type="submit" onClick={async () => {
       const resp = await fetch("https://api.spacetraders.io/v2/register", {
         method: "POST",
