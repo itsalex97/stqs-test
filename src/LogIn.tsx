@@ -2,7 +2,6 @@ import { useState } from "react"
 
 
 function LogIn() {
-    const [token, setToken] = useState();
     const [resp, setResp] = useState("");
     const [form, setForm] = useState({ token: ""});
   
