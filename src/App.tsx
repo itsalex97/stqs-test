@@ -13,6 +13,7 @@ function App() {
     <>
       <h1>STQS</h1>
       <div className="startContainer">
+        <pre id="APIToken"></pre>
         <div className="buttons">
           <button onClick={() => toggleSection('register')}>Register</button>
           <button onClick={() => toggleSection('play')}>Play Game</button>

@@ -30,6 +30,7 @@ function NewGame() {
 
       if (resp.ok) {
         setToken(json.data.token)
+        document.getElementById("APIToken")!.innerHTML = "API Token: " + json.data.token;
       }
 
       setResp(JSON.stringify(json, null, 2))
