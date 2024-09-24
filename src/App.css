@@ -17,6 +17,10 @@ blockquote {
     padding: 30px;
 }
 
+pre {
+    text-align: left;
+}
+
 .section {
     display: none;
     padding: 10px;
