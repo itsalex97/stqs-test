@@ -2,7 +2,7 @@ import { useState } from "react"
 
 function Agent({apiToken}) {
     const [resp, setResp] = useState("");
-    const [form, setForm] = useState({ token: apiToken});
+    const [form, setForm] = useState({token: apiToken});
 
     return(<>
       <h3>View Agent</h3>

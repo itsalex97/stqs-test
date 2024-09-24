@@ -1,49 +1,36 @@
 import { useState } from "react"
+import AcceptContract from "./AcceptContract";
+import ViewContracts from "./ViewContracts";
 
 function Contracts({apiToken}) {
-    const [resp, setResp] = useState("");
-    const [form, setForm] = useState({ token: apiToken});
-    const [contractForm, setContractForm] = useState({contract: ""});
+    const [sections, setSection] = useState<React.ReactNode[]>([]);
+
+    function returnSection(section : string) {
+        switch(section) {
+            case "viewContracts": 
+                return <ViewContracts apiToken={apiToken} />;
+            case "acceptContract": 
+                return <AcceptContract apiToken={apiToken} />;
+            default: 
+                return null;
+        }
+    }
+
+    const addSection = (type: string) => {
+      setSection([returnSection(type)]);
+    };
 
     return(<>
-        <h3>View Contracts</h3>
-        <p>Enter the API token you received from registering your account and you can view all of your current contracts. Each contract has terms, describing the requirements for completing the contract. Contracts will have an expiry date and a deadline for when it must be completed. If you fail to meet this deadline the faction will revoke the contract and reclaim any advance funds you received.</p>
-
-        <input name="api-token" placeholder="API Token" value={form.token} onChange={(e) => setForm({ ...form, token: e.currentTarget.value })} />
-
-        <input type="submit" onClick={async () => {
-            const resp = await fetch("https://api.spacetraders.io/v2/my/contracts", {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + form.token,
-            }
-            });
-    
-            const json = await resp.json();
-    
-            setResp(JSON.stringify(json, null, 2))
-        }} />
-        
-        <h3>Accept a Contract</h3>
-        <p>Enter the your Token and a Contract ID to accept a contract. This will give you a small amount of credits up front - you will receive the final amount on delivery.</p>
-
-        <input name="api-token" placeholder="Contract ID" value={contractForm.contract} onChange={(e) => setContractForm({ ...contractForm, contract: e.currentTarget.value })} />
-
-        <input type="submit" onClick={async () => {
-            const resp = await fetch("https://api.spacetraders.io/v2/my/contracts/"+contractForm.contract+"/accept", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + form.token,
-            }
-            });
-    
-            const json = await resp.json();
-    
-            setResp(JSON.stringify(json, null, 2))
-        }} />
-
-        <pre>Response: {resp}</pre>
-        </>)
+        <h3>Contract Hub</h3>
+        <div className="btnContainer">
+            <button onClick={() => addSection("viewContracts")}>View Contract</button>
+            <button onClick={() => addSection("acceptContract")}>Accept Contract</button>
+        </div>
+        <div id="content" className="subsection-content">
+            {sections.map((section, index) => (
+            <div key={index}>{section}</div>
+            ))}
+        </div>
+    </>)
 }
 export default Contracts

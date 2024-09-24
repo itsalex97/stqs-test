@@ -32,8 +32,8 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
     <div className="subsection-container">
       <div className="subsection-buttons">
         <button onClick={() => addSection("viewAgent")}>View Agent</button>
-        <button onClick={() => addSection("viewContracts")}>View Contracts</button>
-        <button onClick={() => addSection("shipyard")}>Shipyard</button>
+        <button onClick={() => addSection("viewContracts")}>Contract Hub</button>
+        <button onClick={() => addSection("shipyard")}>The Shipyard</button>
         <button onClick={() => addSection("starting-location")}>Starting Location</button>
       </div>
       <div id="content" className="subsection-content">
