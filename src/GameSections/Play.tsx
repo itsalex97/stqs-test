@@ -4,6 +4,7 @@ import "./Play.css";
 import StartingLocation from "./StartingLocation/StartingLocation";
 import Contracts from "./Contracts/Contracts";
 import Shipyard from "./Shipyard/Shipyard";
+import MiningExpedition from "./MiningExpedition/MiningExpedition";
 
 function Play({apiToken, sysSymbol, waypointSymbol}) {
   const [sections, setSection] = useState<React.ReactNode[]>([]);
@@ -16,6 +17,8 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
         return <Contracts apiToken={apiToken} />;
       case "shipyard": 
         return <Shipyard apiToken={apiToken} sysSymbol={sysSymbol} />;
+        case "miningExpedition": 
+          return <MiningExpedition apiToken={apiToken} sysSymbol={sysSymbol} />;
       case "starting-location": 
         return <StartingLocation apiToken={apiToken} sysSymbol={sysSymbol} waypointSymbol={waypointSymbol} />;
       default: 
@@ -34,6 +37,7 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
         <button onClick={() => addSection("viewAgent")}>View Agent</button>
         <button onClick={() => addSection("viewContracts")}>Contract Hub</button>
         <button onClick={() => addSection("shipyard")}>The Shipyard</button>
+        <button onClick={() => addSection("miningExpedition")}>Mining Expedition</button>
         <button onClick={() => addSection("starting-location")}>Starting Location</button>
       </div>
       <div id="content" className="subsection-content">
