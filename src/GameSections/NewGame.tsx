@@ -36,7 +36,6 @@ function NewGame({apiToken, setToken, sysSymbol, setSysSymbol, waypointSymbol, s
 
       setResp(JSON.stringify(json, null, 2))
     }} />
-    <pre>Copy the below API token to continue with the applicaiton.</pre>
     <pre>API token: {apiToken}</pre>
     <pre>Response: {resp}</pre>
   </>)

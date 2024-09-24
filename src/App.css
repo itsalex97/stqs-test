@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   width: 40%;
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
   padding: 2rem;
 }
 
@@ -14,15 +14,19 @@ blockquote {
 .startContainer {
     display: block;
     text-align: center;
+    max-width: 1000px;
     padding: 30px;
 }
 
 pre {
     text-align: left;
+    width: 100%;
+    white-space: pre-wrap;
 }
 
 .section {
     display: none;
+    width: 100%;
     padding: 10px;
     border-radius: 5px;
     transform: translateY(-20px);

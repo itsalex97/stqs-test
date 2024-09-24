@@ -11,7 +11,7 @@ function StartingLocation({apiToken, sysSymbol, waypointSymbol}) {
       <input name="waypoint-symbol" placeholder="Waypoint Symbol" value={form.waypointSymbol} onChange={(e) => setForm({ ...form, waypointSymbol: e.currentTarget.value })} />
 
       <input type="submit" onClick={async () => {
-        const resp = await fetch("https://api.spacetraders.io/v2/systems/"+form.systemSymbol+"/waypoints/"+form.waypointSymbol, {
+        const resp = await fetch("https://api.spacetraders.io/v2/systems/" + form.systemSymbol+"/waypoints/" + form.waypointSymbol, {
           headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + form.token,
