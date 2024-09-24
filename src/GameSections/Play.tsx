@@ -3,15 +3,15 @@ import Agent from "./ViewAgent/ViewAgent";
 import "./Play.css";
 import StartingLocation from "./StartingLocation/StartingLocation";
 
-function Play() {
+function Play({apiToken, sysSymbol, waypointSymbol}) {
   const [sections, setSection] = useState<React.ReactNode[]>([]);
 
   function returnSection(section : string) {
     switch(section) {
-      case "agent": 
-        return <Agent />;
+      case "viewAgent": 
+        return <Agent apiToken={apiToken} />;
         case "starting-location": 
-          return <StartingLocation />;
+          return <StartingLocation apiToken={apiToken} sysSymbol={sysSymbol} waypointSymbol={waypointSymbol} />;
       default: 
         return null;
     }
@@ -25,7 +25,7 @@ function Play() {
     <h1>Play Game</h1>
     <div className="subsection-container">
       <div className="subsection-buttons">
-        <button onClick={() => addSection("agent")}>View Agent</button>
+        <button onClick={() => addSection("viewAgent")}>View Agent</button>
         <button onClick={() => addSection("starting-location")}>Starting Location</button>
       </div>
       <div id="content" className="subsection-content">

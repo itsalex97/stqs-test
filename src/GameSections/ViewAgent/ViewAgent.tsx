@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-function Agent() {
+function Agent({apiToken}) {
     const [resp, setResp] = useState("");
-    const [form, setForm] = useState({ token: ""});
+    const [form, setForm] = useState({ token: apiToken});
 
     return(<>
       <input name="api-token" placeholder="API Token" value={form.token} onChange={(e) => setForm({ ...form, token: e.currentTarget.value })} />

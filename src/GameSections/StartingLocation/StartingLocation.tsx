@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-function StartingLocation() {
+function StartingLocation({apiToken, sysSymbol, waypointSymbol}) {
     const [resp, setResp] = useState("");
-    const [form, setForm] = useState({ token: "", systemSymbol: "", waypointSymbol: ""});
+    const [form, setForm] = useState({ token: apiToken, systemSymbol: sysSymbol, waypointSymbol: waypointSymbol});
 
     return(<>
       <input name="api-token" placeholder="API Token" value={form.token} onChange={(e) => setForm({ ...form, token: e.currentTarget.value })} />

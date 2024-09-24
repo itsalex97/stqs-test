@@ -5,8 +5,7 @@ import { useState } from "react"
  * which you will need to use in subsequent calls. Therefore, you might want to refactor or replace this as you move forward.
  */
 
-function NewGame() {
-  const [token, setToken] = useState();
+function NewGame({apiToken, setToken, sysSymbol, setSysSymbol, waypointSymbol, setWaypointSymbol}) {
   const [resp, setResp] = useState("");
   const [form, setForm] = useState({ symbol: "", faction: "COSMIC" });
 
@@ -29,14 +28,16 @@ function NewGame() {
       const json = await resp.json();
 
       if (resp.ok) {
-        setToken(json.data.token)
-        document.getElementById("APIToken")!.innerHTML = "API Token: " + json.data.token;
+        setToken(json.data.token);
+        setSysSymbol(json.data.ship.nav.systemSymbol);
+        setWaypointSymbol(json.data.ship.nav.waypointSymbol);
+
       }
 
       setResp(JSON.stringify(json, null, 2))
     }} />
     <pre>Copy the below API token to continue with the applicaiton.</pre>
-    <pre>API token: {token}</pre>
+    <pre>API token: {apiToken}</pre>
     <pre>Response: {resp}</pre>
   </>)
 }
