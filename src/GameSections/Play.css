@@ -1,0 +1,22 @@
+.subsection-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.subsection-buttons {
+    width: 20%;
+    padding-right: 20px;
+}
+
+.subsection-buttons button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.subsection-content {
+    width: 70%;
+    display: block;
+    padding: 10px;
+    margin: auto 0;
+}

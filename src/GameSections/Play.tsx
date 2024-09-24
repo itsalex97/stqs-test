@@ -1,30 +1,40 @@
 import { useState } from "react"
+import Agent from "./ViewAgent/ViewAgent";
 import "./Play.css";
-
+import StartingLocation from "./StartingLocation/StartingLocation";
 
 function Play() {
-    const [resp, setResp] = useState("");
-    const [form, setForm] = useState({ token: ""});
-  
-    return (<>
-      <h1>Play Game</h1>
-      <input name="api-token" value={form.token} onChange={(e) => setForm({ ...form, token: e.currentTarget.value })} />
-      <input name="api-token" placeholder="API Token" value={form.token} onChange={(e) => setForm({ ...form, token: e.currentTarget.value })} />
+  const [sections, setSection] = useState<React.ReactNode[]>([]);
 
-      <input type="submit" onClick={async () => {
-        const resp = await fetch("https://api.spacetraders.io/v2/my/agent", {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + form.token,
-          }
-        });
-  
-        const json = await resp.json();
-  
-        setResp(JSON.stringify(json, null, 2))
-      }} />
-      <pre>Response: {resp}</pre>
-    </>)
+  function returnSection(section : string) {
+    switch(section) {
+      case "agent": 
+        return <Agent />;
+        case "starting-location": 
+          return <StartingLocation />;
+      default: 
+        return null;
+    }
   }
-  
-  export default Play
+
+  const addSection = (type: string) => {
+    setSection([returnSection(type)]);
+  };
+
+  return (<>
+    <h1>Play Game</h1>
+    <div className="subsection-container">
+      <div className="subsection-buttons">
+        <button onClick={() => addSection("agent")}>View Agent</button>
+        <button onClick={() => addSection("starting-location")}>Starting Location</button>
+      </div>
+      <div id="content" className="subsection-content">
+        {sections.map((section, index) => (
+          <div key={index}>{section}</div>
+        ))}
+      </div>
+    </div>
+  </>)
+}
+
+export default Play
