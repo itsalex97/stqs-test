@@ -8,6 +8,7 @@ import MiningExpedition from "./MiningExpedition/MiningExpedition";
 
 function Play({apiToken, sysSymbol, waypointSymbol}) {
   const [sections, setSection] = useState<React.ReactNode[]>([]);
+  const [shipSymbol, setShipSymbol] = useState('');
 
   function returnSection(section : string) {
     switch(section) {
@@ -16,9 +17,9 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
       case "viewContracts": 
         return <Contracts apiToken={apiToken} />;
       case "shipyard": 
-        return <Shipyard apiToken={apiToken} sysSymbol={sysSymbol} />;
+        return <Shipyard apiToken={apiToken} sysSymbol={sysSymbol} setShipSymbol={setShipSymbol} />;
         case "miningExpedition": 
-          return <MiningExpedition apiToken={apiToken} sysSymbol={sysSymbol} />;
+          return <MiningExpedition apiToken={apiToken} sysSymbol={sysSymbol} shipSymbol={shipSymbol} />;
       case "starting-location": 
         return <StartingLocation apiToken={apiToken} sysSymbol={sysSymbol} waypointSymbol={waypointSymbol} />;
       default: 

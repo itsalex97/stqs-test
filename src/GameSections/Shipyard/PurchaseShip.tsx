@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function PurchaseShip({apiToken, shipWaypointSymbol}) {
+function PurchaseShip({apiToken, shipWaypointSymbol, setShipSymbol}) {
     const [resp, setResp] = useState("");
     const [form, setForm] = useState({ token: apiToken, shipType: "", waypointSymbol: shipWaypointSymbol});
 
@@ -25,6 +25,10 @@ function PurchaseShip({apiToken, shipWaypointSymbol}) {
             });
     
             const json = await resp.json();
+
+            if(resp.ok) {
+                setShipSymbol(json.data.ship.symbol);
+            }
 
             setResp(JSON.stringify(json, null, 2))
         }} />

@@ -4,7 +4,7 @@ import ViewShipyards from "./ViewShipyards";
 import ViewShips from "./ViewShips";
 import PurchaseShip from "./PurchaseShip";
 
-function Shipyard({apiToken, sysSymbol}) {
+function Shipyard({apiToken, sysSymbol, setShipSymbol}) {
     const [sections, setSection] = useState<React.ReactNode[]>([]);
     const [shipWaypointSymbol, setShipWaypointSymbol] = useState('');
 
@@ -15,7 +15,7 @@ function Shipyard({apiToken, sysSymbol}) {
             case "viewShips": 
                 return <ViewShips apiToken={apiToken} sysSymbol={sysSymbol} shipWaypointSymbol={shipWaypointSymbol} setShipWaypointSymbol={setShipWaypointSymbol} />;
             case "purchaseShip": 
-                return <PurchaseShip apiToken={apiToken} shipWaypointSymbol={shipWaypointSymbol} />;
+                return <PurchaseShip apiToken={apiToken} shipWaypointSymbol={shipWaypointSymbol} setShipSymbol={setShipSymbol} />;
             default: 
                 return null;
         }
