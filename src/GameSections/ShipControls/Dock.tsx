@@ -5,8 +5,8 @@ function Dock({apiToken, shipSymbol}) {
     const [form, setForm] = useState({ token: apiToken, ship: shipSymbol});
 
     return(<>
-      <h3>Navigate</h3>
-      <p>Fly to other waypoints. Provide the waypoint you wish to go to and your ship ID.</p>
+      <h3>Dock</h3>
+      <p>Dock your ship. This is needed to do numerous things such as selling goods and refueling the ship.</p>
         <input name="api-token" placeholder="API Token" value={form.token} onChange={(e) => setForm({ ...form, token: e.currentTarget.value })} />
         <input name="ship-symbol" placeholder="Ship Symbol" value={form.ship} onChange={(e) => setForm({ ...form, ship: e.currentTarget.value })} />
 
