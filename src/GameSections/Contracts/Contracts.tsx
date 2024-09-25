@@ -1,8 +1,10 @@
+import "./Contracts.css";
 import { useState } from "react"
 import AcceptContract from "./AcceptContract";
 import ViewContracts from "./ViewContracts";
+import DeliverGoods from "./DeliverGoods";
 
-function Contracts({apiToken}) {
+function Contracts({apiToken, shipSymbol}) {
     const [sections, setSection] = useState<React.ReactNode[]>([]);
 
     function returnSection(section : string) {
@@ -11,6 +13,8 @@ function Contracts({apiToken}) {
                 return <ViewContracts apiToken={apiToken} />;
             case "acceptContract": 
                 return <AcceptContract apiToken={apiToken} />;
+            case "deliverGoods": 
+                return <DeliverGoods apiToken={apiToken} shipSymbol={shipSymbol} />;
             default: 
                 return null;
         }
@@ -25,6 +29,7 @@ function Contracts({apiToken}) {
         <div className="btnContainer">
             <button onClick={() => addSection("viewContracts")}>View Contract</button>
             <button onClick={() => addSection("acceptContract")}>Accept Contract</button>
+            <button onClick={() => addSection("deliverGoods")}>Deliver Goods</button>
         </div>
         <div id="content" className="subsection-content">
             {sections.map((section, index) => (

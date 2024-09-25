@@ -18,7 +18,7 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
       case "viewAgent": 
         return <Agent apiToken={apiToken} />;
       case "viewContracts": 
-        return <Contracts apiToken={apiToken} />;
+        return <Contracts apiToken={apiToken} shipSymbol={shipSymbol} />;
       case "shipyard": 
         return <Shipyard apiToken={apiToken} sysSymbol={sysSymbol} shipSymbol={shipSymbol} setShipSymbol={setShipSymbol} />;
       case "market": 

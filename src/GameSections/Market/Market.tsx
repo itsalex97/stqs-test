@@ -1,7 +1,7 @@
+import "./Market.css"
 import { useState } from "react"
 import ViewMarket from "./ViewMarket";
 import SellCargo from "./SellCargo";
-// import Orbit from "./Orbit";
 
 function Market({apiToken, sysSymbol, shipSymbol, asteroidSymbol}) {
     const [sections, setSection] = useState<React.ReactNode[]>([]);
