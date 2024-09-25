@@ -24,7 +24,7 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
         case "asteroidSearch":
             return <AsteroidSearch apiToken={apiToken} sysSymbol={sysSymbol} setAsteroidSymbol={setAsteroidSymbol} />;
         case "shipControls":
-            return <ShipControls apiToken={apiToken} shipSymbol={shipSymbol} />;
+            return <ShipControls apiToken={apiToken} shipSymbol={shipSymbol} asteroidSymbol={asteroidSymbol} />;
       case "starting-location": 
         return <StartingLocation apiToken={apiToken} sysSymbol={sysSymbol} waypointSymbol={waypointSymbol} />;
       default: 
