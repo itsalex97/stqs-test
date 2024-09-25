@@ -6,7 +6,6 @@ import Contracts from "./Contracts/Contracts";
 import Shipyard from "./Shipyard/Shipyard";
 import AsteroidSearch from "./AsteroidSearch";
 import ShipControls from "./ShipControls/ShipControls";
-// import ShipControls from "./ShipControls/ShipControls";
 
 function Play({apiToken, sysSymbol, waypointSymbol}) {
   const [sections, setSection] = useState<React.ReactNode[]>([]);

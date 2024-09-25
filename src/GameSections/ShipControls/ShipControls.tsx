@@ -3,6 +3,7 @@ import Orbit from "./Orbit";
 import Navigate from "./Navigate";
 import Dock from "./Dock";
 import Refuel from "./Refuel";
+import Extract from "./Extract";
 
 function ShipControls({apiToken, shipSymbol, asteroidSymbol}) {
     const [sections, setSection] = useState<React.ReactNode[]>([]);
@@ -17,6 +18,8 @@ function ShipControls({apiToken, shipSymbol, asteroidSymbol}) {
                 return <Dock apiToken={apiToken} shipSymbol={shipSymbol} />
             case "refuel": 
                 return <Refuel apiToken={apiToken} shipSymbol={shipSymbol} />
+            case "extract": 
+                return <Extract apiToken={apiToken} shipSymbol={shipSymbol} />
             default: 
                 return null;
         }
@@ -33,6 +36,7 @@ function ShipControls({apiToken, shipSymbol, asteroidSymbol}) {
             <button onClick={() => addSection("navigate")}>Navigate</button>
             <button onClick={() => addSection("dock")}>Dock</button>
             <button onClick={() => addSection("refuel")}>Refuel</button>
+            <button onClick={() => addSection("extract")}>Extract</button>
         </div>
         <div id="content" className="subsection-content">
             {sections.map((section, index) => (
