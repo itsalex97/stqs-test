@@ -6,6 +6,8 @@ function ShipControls({apiToken, shipSymbol}) {
 
     function returnSection(section : string) {
         switch(section) {
+            case "orbit": 
+                return <Orbit apiToken={apiToken} shipSymbol={shipSymbol} />;
             default: 
                 return null;
         }
@@ -18,6 +20,7 @@ function ShipControls({apiToken, shipSymbol}) {
     return(<>
         <h3>Ship Controls</h3>
         <div className="btnContainer">
+            <button onClick={() => addSection("orbit")}>Orbit</button>
         </div>
         <div id="content" className="subsection-content">
             {sections.map((section, index) => (
