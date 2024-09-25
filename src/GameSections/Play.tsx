@@ -6,6 +6,7 @@ import Contracts from "./Contracts/Contracts";
 import Shipyard from "./Shipyard/Shipyard";
 import AsteroidSearch from "./AsteroidSearch";
 import ShipControls from "./ShipControls/ShipControls";
+import Market from "./Market/Market";
 
 function Play({apiToken, sysSymbol, waypointSymbol}) {
   const [sections, setSection] = useState<React.ReactNode[]>([]);
@@ -20,6 +21,8 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
         return <Contracts apiToken={apiToken} />;
       case "shipyard": 
         return <Shipyard apiToken={apiToken} sysSymbol={sysSymbol} setShipSymbol={setShipSymbol} />;
+      case "market": 
+        return <Market apiToken={apiToken} sysSymbol={sysSymbol} shipSymbol={shipSymbol} asteroidSymbol={asteroidSymbol} />;
         case "asteroidSearch":
             return <AsteroidSearch apiToken={apiToken} sysSymbol={sysSymbol} setAsteroidSymbol={setAsteroidSymbol} />;
         case "shipControls":
@@ -42,6 +45,7 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
         <button onClick={() => addSection("viewAgent")}>View Agent</button>
         <button onClick={() => addSection("viewContracts")}>Contract Hub</button>
         <button onClick={() => addSection("shipyard")}>The Shipyard</button>
+        <button onClick={() => addSection("market")}>The Market</button>
         <button onClick={() => addSection("asteroidSearch")}>Asteroid Search</button>
         <button onClick={() => addSection("shipControls")}>Ship Controls</button>
         <button onClick={() => addSection("starting-location")}>Starting Location</button>
