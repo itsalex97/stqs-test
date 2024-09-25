@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Orbit from "./Orbit";
 import Navigate from "./Navigate";
+import Dock from "./Dock";
 
 function ShipControls({apiToken, shipSymbol, asteroidSymbol}) {
     const [sections, setSection] = useState<React.ReactNode[]>([]);
@@ -11,6 +12,8 @@ function ShipControls({apiToken, shipSymbol, asteroidSymbol}) {
                 return <Orbit apiToken={apiToken} shipSymbol={shipSymbol} />;
             case "navigate": 
                 return <Navigate apiToken={apiToken} shipSymbol={shipSymbol} asteroidSymbol={asteroidSymbol} />
+            case "dock": 
+                return <Dock apiToken={apiToken} shipSymbol={shipSymbol} />
             default: 
                 return null;
         }
@@ -25,6 +28,7 @@ function ShipControls({apiToken, shipSymbol, asteroidSymbol}) {
         <div className="btnContainer">
             <button onClick={() => addSection("orbit")}>Orbit</button>
             <button onClick={() => addSection("navigate")}>Navigate</button>
+            <button onClick={() => addSection("dock")}>Dock</button>
         </div>
         <div id="content" className="subsection-content">
             {sections.map((section, index) => (
