@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function AsteroidSearch({apiToken, sysSymbol}) {
+function AsteroidSearch({apiToken, sysSymbol, setAsteroidSymbol}) {
     const [resp, setResp] = useState("");
     const [form, setForm] = useState({ token: apiToken, systemSymbol: sysSymbol});
 
@@ -19,6 +19,10 @@ function AsteroidSearch({apiToken, sysSymbol}) {
           });
     
           const json = await resp.json();
+
+          if(resp.ok) {
+            setAsteroidSymbol(json.data[0].symbol)
+          }
     
           setResp(JSON.stringify(json, null, 2))
         }} />

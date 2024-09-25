@@ -4,11 +4,14 @@ import "./Play.css";
 import StartingLocation from "./StartingLocation/StartingLocation";
 import Contracts from "./Contracts/Contracts";
 import Shipyard from "./Shipyard/Shipyard";
-import MiningExpedition from "./MiningExpedition/MiningExpedition";
+import AsteroidSearch from "./AsteroidSearch";
+import ShipControls from "./ShipControls/ShipControls";
+// import ShipControls from "./ShipControls/ShipControls";
 
 function Play({apiToken, sysSymbol, waypointSymbol}) {
   const [sections, setSection] = useState<React.ReactNode[]>([]);
   const [shipSymbol, setShipSymbol] = useState('');
+  const [asteroidSymbol, setAsteroidSymbol] = useState('');
 
   function returnSection(section : string) {
     switch(section) {
@@ -18,8 +21,10 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
         return <Contracts apiToken={apiToken} />;
       case "shipyard": 
         return <Shipyard apiToken={apiToken} sysSymbol={sysSymbol} setShipSymbol={setShipSymbol} />;
-        case "miningExpedition": 
-          return <MiningExpedition apiToken={apiToken} sysSymbol={sysSymbol} shipSymbol={shipSymbol} />;
+        case "asteroidSearch":
+            return <AsteroidSearch apiToken={apiToken} sysSymbol={sysSymbol} setAsteroidSymbol={setAsteroidSymbol} />;
+        case "shipControls":
+            return <ShipControls apiToken={apiToken} shipSymbol={shipSymbol} />;
       case "starting-location": 
         return <StartingLocation apiToken={apiToken} sysSymbol={sysSymbol} waypointSymbol={waypointSymbol} />;
       default: 
@@ -38,7 +43,8 @@ function Play({apiToken, sysSymbol, waypointSymbol}) {
         <button onClick={() => addSection("viewAgent")}>View Agent</button>
         <button onClick={() => addSection("viewContracts")}>Contract Hub</button>
         <button onClick={() => addSection("shipyard")}>The Shipyard</button>
-        <button onClick={() => addSection("miningExpedition")}>Mining Expedition</button>
+        <button onClick={() => addSection("asteroidSearch")}>Asteroid Search</button>
+        <button onClick={() => addSection("shipControls")}>Ship Controls</button>
         <button onClick={() => addSection("starting-location")}>Starting Location</button>
       </div>
       <div id="content" className="subsection-content">
