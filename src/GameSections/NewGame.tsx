@@ -5,7 +5,7 @@ import { useState } from "react"
  * which you will need to use in subsequent calls. Therefore, you might want to refactor or replace this as you move forward.
  */
 
-function NewGame({apiToken, setToken, sysSymbol, setSysSymbol, waypointSymbol, setWaypointSymbol}) {
+function NewGame({apiToken, setToken, sysSymbol, setSysSymbol, startWaypointSymbol, setStartWaypointSymbol}) {
   const [resp, setResp] = useState("");
   const [form, setForm] = useState({ symbol: "", faction: "COSMIC" });
 
@@ -30,7 +30,7 @@ function NewGame({apiToken, setToken, sysSymbol, setSysSymbol, waypointSymbol, s
       if (resp.ok) {
         setToken(json.data.token);
         setSysSymbol(json.data.ship.nav.systemSymbol);
-        setWaypointSymbol(json.data.ship.nav.waypointSymbol);
+        setStartWaypointSymbol(json.data.ship.nav.startWaypointSymbol);
 
       }
 
