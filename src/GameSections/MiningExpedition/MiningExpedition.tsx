@@ -1,11 +1,13 @@
 import { useState } from "react"
-import Orbit from "./Orbit";
+import AsteroidSearch from "./AsteroidSearch";
 
-function ShipControls({apiToken, sysSymbol, shipSymbol}) {
+function MiningExpedition({apiToken, sysSymbol}) {
     const [sections, setSection] = useState<React.ReactNode[]>([]);
 
     function returnSection(section : string) {
         switch(section) {
+            case "asteroidSearch":
+                return <AsteroidSearch apiToken={apiToken} sysSymbol={sysSymbol} />;
             default: 
                 return null;
         }
@@ -16,8 +18,9 @@ function ShipControls({apiToken, sysSymbol, shipSymbol}) {
     };
 
     return(<>
-        <h3>Ship Controls</h3>
+        <h3>Mining Expedition</h3>
         <div className="btnContainer">
+            <button onClick={() => addSection("asteroidSearch")}>Asteroid Search</button>
         </div>
         <div id="content" className="subsection-content">
             {sections.map((section, index) => (
@@ -26,4 +29,4 @@ function ShipControls({apiToken, sysSymbol, shipSymbol}) {
         </div>
     </>)
 }
-export default ShipControls
+export default MiningExpedition
