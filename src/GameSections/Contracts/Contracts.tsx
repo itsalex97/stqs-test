@@ -7,17 +7,18 @@ import FulfillContract from "./FulfillContract";
 
 function Contracts({apiToken, shipSymbol}) {
     const [sections, setSection] = useState<React.ReactNode[]>([]);
+    const [contractSymbol, setContractSymbol] = useState('');
 
     function returnSection(section : string) {
         switch(section) {
             case "viewContracts": 
                 return <ViewContracts apiToken={apiToken} />;
             case "acceptContract": 
-                return <AcceptContract apiToken={apiToken} />;
+                return <AcceptContract apiToken={apiToken} setContractSymbol={setContractSymbol} />;
             case "deliverGoods": 
-                return <DeliverGoods apiToken={apiToken} shipSymbol={shipSymbol} />;
+                return <DeliverGoods apiToken={apiToken} shipSymbol={shipSymbol} contractSymbol={contractSymbol} />;
             case "fulfillContract": 
-                return <FulfillContract apiToken={apiToken} shipSymbol={shipSymbol} />;
+                return <FulfillContract apiToken={apiToken} shipSymbol={shipSymbol} contractSymbol={contractSymbol} />;
             default: 
                 return null;
         }

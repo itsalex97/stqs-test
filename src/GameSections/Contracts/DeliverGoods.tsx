@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-function DeliverGoods({apiToken, shipSymbol}) {
+function DeliverGoods({apiToken, shipSymbol, contractSymbol}) {
     const [resp, setResp] = useState("");
-    const [form, setForm] = useState({token: apiToken, contract: "" ,ship: shipSymbol, tradeGood: "", amount: ""});
+    const [form, setForm] = useState({token: apiToken, contract: contractSymbol ,ship: shipSymbol, tradeGood: "", amount: ""});
 
     return(<>
         <h3>Deliver Goods</h3>

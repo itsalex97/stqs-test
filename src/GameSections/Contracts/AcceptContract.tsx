@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function AcceptContract({apiToken}) {
+function AcceptContract({apiToken, setContractSymbol}) {
     const [resp, setResp] = useState("");
     const [form, setForm] = useState({token: apiToken, contract: "" });
 
@@ -21,6 +21,10 @@ function AcceptContract({apiToken}) {
             });
     
             const json = await resp.json();
+
+            if(resp.ok) {
+                setContractSymbol(json.data.contract.id);
+            }
     
             setResp(JSON.stringify(json, null, 2))
         }} />
