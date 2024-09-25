@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function ViewShips({apiToken, sysSymbol, shipWaypointSymbol, setShipWaypointSymbol}) {
+function ViewShipyardShips({apiToken, sysSymbol, shipWaypointSymbol, setShipWaypointSymbol}) {
     const [resp, setResp] = useState("");
     const [form, setForm] = useState({ token: apiToken, systemSymbol: sysSymbol, waypointSymbol: shipWaypointSymbol});
 
@@ -30,4 +30,4 @@ function ViewShips({apiToken, sysSymbol, shipWaypointSymbol, setShipWaypointSymb
         <pre>Response: {resp}</pre>
     </>)
 }
-export default ViewShips
+export default ViewShipyardShips
